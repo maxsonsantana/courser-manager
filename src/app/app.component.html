@@ -1,11 +1,6 @@
-<div class="container">
-    <app-course-list></app-course-list>
+<app-nav-bar></app-nav-bar>
+
+<div class="container mt-4">
+    <router-outlet></router-outlet><!--Efetua o Switch-->
 </div>
-
-{{name}}
-
-{{title}}
-<br/>
-    <input [ngModel]="name" name="name" > One Way Data Binding
-    <input [(ngModel)]="name" name="name" > Two Way Data Binding
 
