@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { Error404Component } from './error-404/error-404.component';
 import { DataBindingComponent } from './dataBinding/dataBinding.component';
+import { CourseInfoComponent } from './courses/course-info.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,21 @@ import { DataBindingComponent } from './dataBinding/dataBinding.component';
     ReplacePipe,
     NavBarComponent,
     Error404Component,
-    DataBindingComponent
+    DataBindingComponent,
+    CourseInfoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([//Espera um array do tipo objetos de rotas
+      {
+        path: 'courses',
+        component: CourseListComponent
+      },
+      {
+        path: 'courses/info/:id',
+        component: CourseInfoComponent
+      },
       {
         path: '',//default path
         redirectTo: 'courses',
@@ -34,10 +44,7 @@ import { DataBindingComponent } from './dataBinding/dataBinding.component';
         path: 'dataBinding',
         component: DataBindingComponent
       },
-      {
-        path: 'courses',
-        component: CourseListComponent
-      },
+
       {
         path: '**',//catch all path
         component: Error404Component        
